@@ -1,0 +1,14 @@
+.weather-header{
+    background-image: linear-gradient(to right,lightskyblue, navy);
+    color: white;
+}
+
+#form-heading{
+    color: black;
+    font-weight: 700;
+}
+
+.search-button{
+    background-color: lightskyblue;
+    color: white;
+}
