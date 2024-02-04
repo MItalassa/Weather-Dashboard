@@ -57,3 +57,13 @@ function historySearch(cityName) {
     localStorage.setItem("sCity", JSON.stringify(sCity));
   }
 
+//create searched city button
+function createCityBtn(cityName) {
+    let searchedCity= $("<button>").text(cityName);
+    BtnCities.append(searchedCity);
+    searchedCity.on('click', function(event){
+        getDataFromApi(cityName)
+    })
+}
+
+
