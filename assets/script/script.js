@@ -60,9 +60,10 @@ function historySearch(cityName) {
 //create searched city button
 function createCityBtn(cityName) {
     let searchedCity= $("<button>").text(cityName);
+    searchedCity.attr("class", "history-btn")
     BtnCities.append(searchedCity);
     searchedCity.on('click', function(event){
-        getDataFromApi(cityName)
+        searchWeatherApi(cityName)
     })
 }
 
@@ -99,15 +100,18 @@ function displayWeather(data) {
           var icon = data.list[(i + 1) * 8 - 1].weather[0].icon;
           var fTemp = data.list[(i + 1) * 8 - 1].main.temp;
           var fHumidity = data.list[(i + 1) * 8 - 1].main.humidity;
+          var fWind = data.list[(i + 1) * 8 - 1].wind.speed;
+
           var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
           var forecastCard = createDiv(date, fTemp, fHumidity, iconUrl);
           forecast.append(forecastCard);
           function createDiv(date, fTemp, fHumidity, iconUrl) {
-            return `<div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+            return `<div class="col-sm-2 bg- forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                     <p>${date}</p>
                     <img src="${iconUrl}" class="card-img-top" alt="image">
-                    <p>Temp:<span>${fTemp}</span></p>
-                                <p>Humidity:<span>${fHumidity}</span></p>
+                    <p>Temp:<span>${fTemp} C</span></p>
+                    <p>Wind:<span>${fWind} KPH</span></p>
+                    <p>Humidity:<span>${fHumidity}%</span></p>
                             </div>`;
           }
         }

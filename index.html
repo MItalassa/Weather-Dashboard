@@ -27,7 +27,7 @@
         <form id="search-form" class="form">
           <div class="form-inline form-group">
             <div class="input-group">
-              <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+              <input class="col-lg-9 weather-search" type="text" id="search-input" placeholder="London"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <div class="input-group-append">
                 <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
@@ -39,13 +39,15 @@
           </div>
         </form>
       </aside>
-      <aside>Your Search History:</aside>
-      <aside id="history"></aside>
+      <aside>
+        <h2>Your Search History:</h2>
+      </aside>
+      <aside id="history" class="col-lg-9"></aside>
 
       <div class="col-lg-9 pb-3">
         <section id="today" class="mt-3" role="region" aria-live="polite">
           <!-- today main weather card -->
-          <div class="col-sm-8">
+          <div class="col-lg-9 ">
             <div class="row ml-2 border border-dark rounded">
                 <div class="col-sm-12" id="current-weather">
                     <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
