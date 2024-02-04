@@ -18,6 +18,8 @@
     background-color: lightgrey;
     color: black;
     width: 50%;
+    margin-left: 10%;
+    margin-top: 0.5%;
 }
 
 .current{
@@ -27,4 +29,5 @@
 
 .forecast{
     background-color: rgb(44, 52, 70);
+    margin-left:3%;
 }
