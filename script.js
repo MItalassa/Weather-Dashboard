@@ -39,10 +39,10 @@ function searchWeatherApi(cityName) {
     })
     .then(function (data) {
       console.log(data);
-      renderData(data); //Render data
+      mainCardRender(data);
       if (!sCity.includes(cityName)){
-      saveDataLocal(cityName); //Save to local storage
-      createBtn(cityName); // Create history button
+      historySearch(cityName);
+      createCityBtn(cityName);
     } 
 
     })
@@ -50,3 +50,10 @@ function searchWeatherApi(cityName) {
       console.error("Error data:", error);
     });
 }
+
+//save search input in localStorage
+function historySearch(cityName) {
+    sCity.push(cityName);
+    localStorage.setItem("sCity", JSON.stringify(sCity));
+  }
+
