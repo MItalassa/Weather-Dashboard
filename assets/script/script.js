@@ -87,7 +87,7 @@ function displayWeather(data) {
       const iconUrl = `https://openweathermap.org/img/wn/${weathericon}@2x.png`;
       var date = data.list[0].dt_txt;
   
-      $(currentCity).text(cityValue + "(" + date + ")"); // create html image element and append URL Tto render icon
+      $(currentCity).text(cityValue + "(" + currentDate + ")");
       $(currentTemperature).text(temp);
       $(currentWSpeed).text(wind + " MPH");
       $(currentHumidty).text(humidity + "%");
