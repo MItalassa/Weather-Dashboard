@@ -93,7 +93,25 @@ function displayWeather(data) {
       $(currentHumidty).text(humidity + "%");
     }
 
-    
+    function forecastCards() {
+        for (let i = 0; i < 5; i++) {
+          var date = data.list[(i + 1) * 8 - 1].dt_txt;
+          var icon = data.list[(i + 1) * 8 - 1].weather[0].icon;
+          var fTemp = data.list[(i + 1) * 8 - 1].main.temp;
+          var fHumidity = data.list[(i + 1) * 8 - 1].main.humidity;
+          var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+          var forecastCard = createDiv(date, fTemp, fHumidity, iconUrl);
+          forecast.append(forecastCard);
+          function createDiv(date, fTemp, fHumidity, iconUrl) {
+            return `<div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                    <p>${date}</p>
+                    <img src="${iconUrl}" class="card-img-top" alt="image">
+                    <p>Temp:<span>${fTemp}</span></p>
+                                <p>Humidity:<span>${fHumidity}</span></p>
+                            </div>`;
+          }
+        }
+      }
   }
 
 
