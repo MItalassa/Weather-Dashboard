@@ -25,3 +25,28 @@ $("#search-form").on("submit", function (event) {
   });
 
 // API call
+function searchWeatherApi(cityName) {
+    //Clear previous data
+  forecast.empty();
+
+  fetch(
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      cityName +
+      "&appid=55090d86c04441f690301775fb9e877e&units=metric"
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      renderData(data); //Render data
+      if (!sCity.includes(cityName)){
+      saveDataLocal(cityName); //Save to local storage
+      createBtn(cityName); // Create history button
+    } 
+
+    })
+    .catch(function (error) {
+      console.error("Error data:", error);
+    });
+}
