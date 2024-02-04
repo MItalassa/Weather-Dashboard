@@ -39,7 +39,7 @@ function searchWeatherApi(cityName) {
     })
     .then(function (data) {
       console.log(data);
-      mainCardRender(data);
+      displayWeather(data);
       if (!sCity.includes(cityName)){
       historySearch(cityName);
       createCityBtn(cityName);
@@ -65,5 +65,35 @@ function createCityBtn(cityName) {
         getDataFromApi(cityName)
     })
 }
+
+//function to display result API call
+function displayWeather(data) {
+    const weatherIcon = $(".weather-icon");
+    const list = data.list;
+  
+    const iconCode = list[0].weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    $(".weather-icon").attr("src", iconUrl);
+  
+    todayWeather();
+    forecastCards();
+
+    function todayWeather() {
+      var cityValue = data.city.name;
+      var temp = data.list[0].main.temp;
+      var humidity = data.list[0].main.humidity;
+      var wind = data.list[0].wind.speed;
+      var weathericon = data.list[0].weather[0].icon;
+      const iconUrl = `https://openweathermap.org/img/wn/${weathericon}@2x.png`;
+      var date = data.list[0].dt_txt;
+  
+      $(currentCity).text(cityValue + "(" + date + ")"); // create html image element and append URL Tto render icon
+      $(currentTemperature).text(temp);
+      $(currentWSpeed).text(wind + " MPH");
+      $(currentHumidty).text(humidity + "%");
+    }
+
+    
+  }
 
 
