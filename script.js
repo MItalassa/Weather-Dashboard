@@ -116,7 +116,7 @@ function displayWeather(data) {
   
   for (let i = 0; i < sCity.length; i++) {
     const cityName = sCity[i];
-    createBtn(cityName);
+    createCityBtn(cityName);
 }
 
 
