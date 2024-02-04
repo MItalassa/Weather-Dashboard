@@ -1,7 +1,7 @@
 # Weather-Dashboard
 
 
-  Link to GitHub Repo: https://mitalassa.github.io/Weather-Dashboard/
+  Link to deployed application: https://mitalassa.github.io/Weather-Dashboard/
  
   <img src="./assets/images/Screenshot (24).png">
 
